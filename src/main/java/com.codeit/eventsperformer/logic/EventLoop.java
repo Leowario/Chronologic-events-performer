@@ -17,7 +17,7 @@ public class EventLoop {
         return Singleton.VALUE.value();
     }
 
-      void start(PriorityQueue<Event> eventQueue) {
+    void start(PriorityQueue<Event> eventQueue) {
         Timer timer = new Timer();
         Iterator<Event> iterator = eventQueue.iterator();
 
@@ -34,6 +34,7 @@ public class EventLoop {
 
     private enum Singleton {
         VALUE;
+
         private EventLoop value() {
             return new EventLoop();
         }
