@@ -21,7 +21,6 @@ public class Application {
 
     public void run() {
         try {
-            long milsStart = System.currentTimeMillis();
             Event[] events = new EventFactory().getEvents();
             PriorityQueue<Event> eventsQueue = EventsQueueFactory.getQueue(events);
             EventLoop.instance().start(eventsQueue);
