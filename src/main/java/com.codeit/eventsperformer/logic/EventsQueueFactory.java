@@ -13,6 +13,9 @@ class EventsQueueFactory {
 
     }
 
+    /**
+     * @return a {@link PriorityQueue<Event>} with lowest time first
+     */
     static PriorityQueue<Event> getQueue(Event[] events) {
         PriorityQueue<Event> eventQueue = new PriorityQueue<>();
         addAll(eventQueue, events);

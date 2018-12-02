@@ -16,9 +16,12 @@ import static com.codeit.eventsperformer.logic.MillisecondsParser.parseToMillis;
 
 /**
  * @author Vitalii Usatyi
+ * <p>
+ * Parses from JSON file to array of {@link Event}
  */
-class EventFactory {
-    Event[] getEvents() throws URISyntaxException, IOException, ParseException {
+class EventParser {
+
+    Event[] parse() throws URISyntaxException, IOException, ParseException {
         Path path = getPath();
         File file = new File(path.toUri());
         JSONArray jsonObject = getJsonObject(file);

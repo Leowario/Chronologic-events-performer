@@ -12,6 +12,10 @@ class MillisecondsParser {
 
     private static final int CONSTANT = 7200000;
 
+    /**
+     * @param time should contain time in format(mm:ss)
+     * @return milliseconds of the entered time
+     */
     static long parseToMillis(String time) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("mm:ss");
@@ -21,6 +25,6 @@ class MillisecondsParser {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        throw new IllegalArgumentException("Incorrect time entry ");
+        throw new IllegalArgumentException("Incorrect time entry");
     }
 }

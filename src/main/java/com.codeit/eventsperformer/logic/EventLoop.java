@@ -17,6 +17,10 @@ class EventLoop {
         return Singleton.VALUE.value();
     }
 
+    /**
+     * Creates a new {@link Action} for each {@link Event} and starts the timer.
+     * End working when last {@link Action} was performed
+     */
     void start(PriorityQueue<Event> eventQueue) {
         Timer timer = new Timer();
         Iterator<Event> iterator = eventQueue.iterator();
@@ -24,7 +28,7 @@ class EventLoop {
         while (iterator.hasNext()) {
             Event event = eventQueue.poll();
             long milliseconds = event.getTimeMillis();
-            if (!iterator.hasNext()) {// if current event is last
+            if (!iterator.hasNext()) {// if current event is last - cancel timer
                 timer.schedule(new Action(event.getEventName(), timer, true), milliseconds);
             } else {
                 timer.schedule(new Action(event.getEventName()), milliseconds);
