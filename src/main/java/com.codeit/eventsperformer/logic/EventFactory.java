@@ -17,7 +17,7 @@ import static com.codeit.eventsperformer.logic.MillisecondsParser.parseToMillis;
 /**
  * @author Vitalii Usatyi
  */
-public class EventFactory {
+class EventFactory {
     Event[] getEvents() throws URISyntaxException, IOException, ParseException {
         Path path = getPath();
         File file = new File(path.toUri());

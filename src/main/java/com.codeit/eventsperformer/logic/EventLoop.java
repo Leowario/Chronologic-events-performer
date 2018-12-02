@@ -7,13 +7,13 @@ import java.util.Timer;
 /**
  * @author Vitalii Usatiy
  */
-public class EventLoop {
+class EventLoop {
 
     private EventLoop() {
 
     }
 
-    public static EventLoop instance() {
+    static EventLoop instance() {
         return Singleton.VALUE.value();
     }
 

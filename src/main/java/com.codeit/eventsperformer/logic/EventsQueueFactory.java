@@ -7,7 +7,7 @@ import static java.util.Collections.addAll;
 /**
  * @author Vitalii Usatyi
  */
-public class EventsQueueFactory {
+class EventsQueueFactory {
 
     private EventsQueueFactory() {
 
