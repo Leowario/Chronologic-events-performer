@@ -3,7 +3,7 @@ package com.codeit.eventsperformer.logic;
 /**
  * @author Vitalii Usatyi
  */
-public class Event {
+public class Event implements Comparable<Event>{
 
     private String eventName;
     private String time;
@@ -21,7 +21,6 @@ public class Event {
         this.timeMillis = timeMillis;
         return this;
     }
-
 
     String getEventName() {
         return eventName;
@@ -43,5 +42,8 @@ public class Event {
                 '}';
     }
 
-
+    @Override
+    public int compareTo(Event e) {
+        return Long.compare(timeMillis,e.timeMillis);
+    }
 }
