@@ -1,0 +1,26 @@
+package com.codeit.eventsperformer.logic;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
+/**
+ * @author Vitalii Usatii
+ */
+class MillisecondsParser {
+
+    private static final int CONSTANT = 7200000;
+
+    static long parseToMillis(String time) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("mm:ss");
+            format.setTimeZone(TimeZone.getDefault());
+            Date date = format.parse(time);
+            return date.getTime() + CONSTANT;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        throw new IllegalArgumentException("Incorrect time entry ");
+    }
+}
