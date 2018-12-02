@@ -19,12 +19,10 @@ import static com.codeit.eventsperformer.logic.MillisecondsParser.parseToMillis;
  * <p>
  * Parses from JSON file to array of {@link Event}
  */
-class EventParser {
+public class EventParser {
 
-    Event[] parse() throws URISyntaxException, IOException, ParseException {
-        Path path = getPath();
-        File file = new File(path.toUri());
-        JSONArray jsonObject = getJsonObject(file);
+    public Event[] parse() throws URISyntaxException, IOException, ParseException {
+        JSONArray jsonObject = getJsonArrayObject();
         String jsonString = jsonObject.toJSONString();
         Event[] events = new Gson().fromJson(jsonString, Event[].class);
         for (Event event : events) {
@@ -32,12 +30,17 @@ class EventParser {
         }
         return events;
     }
+    public  JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
+        Path path = getPath();
+        File file = new File(path.toUri());
+        return getJsonArrayObject(file);
+    }
 
-    private static JSONArray getJsonObject(File file) throws IOException, ParseException {
+    private static JSONArray getJsonArrayObject(File file) throws IOException, ParseException {
         return (JSONArray) new JSONParser().parse(new FileReader(file));
     }
 
-    private Path getPath() throws URISyntaxException {
+    private  Path getPath() throws URISyntaxException {
         return Paths.get(
                 getClass()
                         .getClassLoader()
