@@ -1,5 +1,7 @@
 package com.codeit.eventsperformer.logic;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.util.Objects;
 
 /**
@@ -30,8 +32,8 @@ public class Event implements Comparable<Event> {
     String getEventName() {
         return eventName;
     }
-
-    String getTime() {
+@VisibleForTesting
+    public String getTime() {
         return time;
     }
 
