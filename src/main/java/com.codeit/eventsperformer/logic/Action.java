@@ -29,14 +29,10 @@ public class Action extends TimerTask {
 
     @Override
     public void run() {
-        SimpleDateFormat format = new SimpleDateFormat("mm:ss");
-        Date date = new Date();
-        System.out.println(format.format(date));
         System.out.println(massage);
         cancel();
         if (isLast) {
             timer.cancel();
-            System.out.println(System.nanoTime());
         }
     }
 }
