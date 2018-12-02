@@ -1,5 +1,7 @@
 package com.codeit.eventsperformer.logic;
 
+import java.util.Objects;
+
 /**
  * @author Vitalii Usatyi
  */
@@ -43,6 +45,22 @@ public class Event implements Comparable<Event> {
                 "eventName='" + eventName + '\'' +
                 ", time='" + time + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Event)) return false;
+        Event event = (Event) o;
+        return timeMillis == event.timeMillis &&
+                Objects.equals(eventName, event.eventName) &&
+                Objects.equals(time, event.time);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(eventName, time, timeMillis);
     }
 
     @Override
