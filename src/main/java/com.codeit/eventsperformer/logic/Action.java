@@ -31,6 +31,7 @@ public class Action extends TimerTask {
         cancel();
         if (isLast) {
             timer.cancel();
+            System.out.println("Finish time: "+System.currentTimeMillis());
         }
     }
 }

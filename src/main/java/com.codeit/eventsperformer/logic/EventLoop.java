@@ -7,13 +7,13 @@ import java.util.Timer;
 /**
  * @author Vitalii Usatiy
  */
-class EventLoop {
+public class EventLoop {
 
     private EventLoop() {
 
     }
 
-    static EventLoop instance() {
+    public static EventLoop instance() {
         return Singleton.VALUE.value();
     }
 
@@ -21,7 +21,7 @@ class EventLoop {
      * Creates a new {@link Action} for each {@link Event} and starts the timer.
      * End working when last {@link Action} was performed
      */
-    void start(PriorityQueue<Event> eventQueue) {
+    public void start(PriorityQueue<Event> eventQueue) {
         Timer timer = new Timer();
         Iterator<Event> iterator = eventQueue.iterator();
 
