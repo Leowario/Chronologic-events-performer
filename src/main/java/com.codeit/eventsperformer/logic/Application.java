@@ -21,11 +21,10 @@ public class Application {
 
     public void run() {
         try {
-            Event[] events = new EventFactory().getEvents();
+            Event[] events = new EventParser().parse();
             PriorityQueue<Event> eventsQueue = EventsQueueFactory.getQueue(events);
             EventLoop.instance().start(eventsQueue);
         } catch (URISyntaxException | IOException | ParseException e) {
-            System.out.println("Parse from JSON Exception");
             e.printStackTrace();
         }
     }
