@@ -9,11 +9,11 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @DisplayName("Application should:")
-public class TestApplication {
+class TestApplication {
 
     @Test
     @DisplayName("parse from JSON")
-    public void parseFromJson() throws ParseException, IOException, URISyntaxException {
+    void parseFromJson() throws ParseException, IOException, URISyntaxException {
 
         EventParser eventParser = new EventParser();
         Event[] events = eventParser.parse();
