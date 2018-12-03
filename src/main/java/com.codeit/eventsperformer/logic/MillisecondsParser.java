@@ -10,8 +10,6 @@ import java.util.TimeZone;
  */
 class MillisecondsParser {
 
-    private static final int CONSTANT_FOR_GMT2 = 7200000;
-
     /**
      * @param time should contain time in format(mm:ss)
      * @return milliseconds of the entered time
@@ -19,9 +17,9 @@ class MillisecondsParser {
     static long parseToMillis(String time) {
         try {
             SimpleDateFormat format = new SimpleDateFormat("mm:ss");
-            format.setTimeZone(TimeZone.getTimeZone("GMT+2:00"));
+            format.setTimeZone(TimeZone.getTimeZone("GMT+0:00"));
             Date date = format.parse(time);
-            return date.getTime() + CONSTANT_FOR_GMT2;
+            return date.getTime();
         } catch (ParseException e) {
             e.printStackTrace();
         }
