@@ -32,7 +32,8 @@ public class Event implements Comparable<Event> {
     String getEventName() {
         return eventName;
     }
-@VisibleForTesting
+
+    @VisibleForTesting
     public String getTime() {
         return time;
     }

@@ -32,7 +32,7 @@ public class Action extends TimerTask {
         System.out.println(massage);
         cancel();
         long milliseconds = System.currentTimeMillis() - Main.startTime;
-        System.out.println("Current time: "+ milliseconds/1000+" s "+ milliseconds%1000+" ms");
+        System.out.println("Current time: " + milliseconds / 1000 + " s " + milliseconds % 1000 + " ms");
         if (isLast) {
             timer.cancel();
         }
