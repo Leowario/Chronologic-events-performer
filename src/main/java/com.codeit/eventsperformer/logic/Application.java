@@ -21,7 +21,6 @@ public class Application {
 
     public void run() {
         try {
-            System.out.println("Start time: "+System.currentTimeMillis());
             Event[] events = new EventParser().parse();
             PriorityQueue<Event> eventsQueue = EventsQueueFactory.getQueue(events);
             EventLoop.instance().start(eventsQueue);

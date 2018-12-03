@@ -1,5 +1,7 @@
 package com.codeit.eventsperformer.logic;
 
+import com.codeit.eventsperformer.Main;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -29,9 +31,10 @@ public class Action extends TimerTask {
     public void run() {
         System.out.println(massage);
         cancel();
+        long milliseconds = System.currentTimeMillis() - Main.startTime;
+        System.out.println("Current time: " + milliseconds / 1000 + " s " + milliseconds % 1000 + " ms");
         if (isLast) {
             timer.cancel();
-            System.out.println("Finish time: "+System.currentTimeMillis());
         }
     }
 }

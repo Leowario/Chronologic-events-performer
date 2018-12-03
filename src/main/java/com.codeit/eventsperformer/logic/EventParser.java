@@ -16,8 +16,8 @@ import static com.codeit.eventsperformer.logic.MillisecondsParser.parseToMillis;
 
 /**
  * @author Vitalii Usatyi
- * <p>
- * Parses from JSON file to array of {@link Event}
+ *         <p>
+ *         Parses from JSON file to array of {@link Event}
  */
 public class EventParser {
 
@@ -30,7 +30,8 @@ public class EventParser {
         }
         return events;
     }
-    public  JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
+
+    private JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
         Path path = getPath();
         File file = new File(path.toUri());
         return getJsonArrayObject(file);
@@ -40,7 +41,7 @@ public class EventParser {
         return (JSONArray) new JSONParser().parse(new FileReader(file));
     }
 
-    private  Path getPath() throws URISyntaxException {
+    private Path getPath() throws URISyntaxException {
         return Paths.get(
                 getClass()
                         .getClassLoader()
