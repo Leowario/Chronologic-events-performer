@@ -24,11 +24,19 @@ public class EventParser {
     public Event[] parse() throws URISyntaxException, IOException, ParseException {
         JSONArray jsonObject = getJsonArrayObject();
         String jsonString = jsonObject.toJSONString();
-        Event[] events = new Gson().fromJson(jsonString, Event[].class);
+        Event[] events = parseToEvents(jsonString);
+        setTimeMillis(events);
+        return events;
+    }
+
+    private Event[] parseToEvents(String jsonString) {
+        return new Gson().fromJson(jsonString, Event[].class);
+    }
+
+    private void setTimeMillis(Event[] events) {
         for (Event event : events) {
             event.setTimeMillis(parseToMillis(event.getTime()));
         }
-        return events;
     }
 
     private JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
