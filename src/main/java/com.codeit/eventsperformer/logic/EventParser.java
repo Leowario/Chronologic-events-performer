@@ -31,7 +31,7 @@ public class EventParser {
         return events;
     }
 
-    public JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
+    private JSONArray getJsonArrayObject() throws URISyntaxException, IOException, ParseException {
         Path path = getPath();
         File file = new File(path.toUri());
         return getJsonArrayObject(file);
